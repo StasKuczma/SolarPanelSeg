@@ -1,8 +1,8 @@
 xhost +local:root
 
 # BUILD THE IMAGE
-IMAGE="land_cover_seg"
-CONTAINER="LAND_COVER_SEG"
+IMAGE="solar-panel-seg"
+CONTAINER="solar-panel-seg"
 
 XAUTH=/tmp/.docker.xauth
  if [ ! -f $XAUTH ]
@@ -26,7 +26,8 @@ docker run -it \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
-    --volume= "../src/:/workspace/src" \
+    --volume="./src/:/workspace/src" \
+    --volume="./data/:/workspace/data" \
     --env="NVIDIA_VISIBLE_DEVICES=all" \
     --env="NVIDIA_DRIVER_CAPABILITIES=all" \
     --privileged \
