@@ -1,0 +1,1 @@
+run container `./docker/run_gpu.sh`
